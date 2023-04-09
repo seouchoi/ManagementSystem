@@ -34,8 +34,6 @@ public class DeliverlyManager_Funtion {
 		}
 		}
 	}
-		
-	
 		static void menu()
 		{
 			System.out.println("1. chicken");
@@ -85,5 +83,4 @@ public class DeliverlyManager_Funtion {
 			System.out.println("We will send the delivery "+adress);
 			System.out.println();
 		}
-		
 }
