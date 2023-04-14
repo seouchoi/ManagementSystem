@@ -16,6 +16,7 @@ public class MenuManager {
 		System.out.println("5. Exit");
 		System.out.print("select number 1-5 : ");
 		num =input.nextInt();
+		System.out.println();
 
 		if(num==1)
 		{
