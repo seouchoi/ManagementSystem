@@ -20,6 +20,6 @@ public class Adress {
 	
 	void printInfo()
 	{
-		System.out.println("Adress Id: "+adressId+"District: "+district+", City :"+city+", StreetNum: "+streetNum+", DetailAress: "+detailAdress );
+		System.out.println("Adress Id: "+adressId+" District: "+district+", City :"+city+", StreetNum: "+streetNum+", DetailAress: "+detailAdress );
 	}
 }

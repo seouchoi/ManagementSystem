@@ -72,25 +72,86 @@ public class Operator {
 			adress.streetNum = input.nextInt();
 			System.out.print("Detail Adress : ");
 			adress.detailAdress = input.next();
+			System.out.println("The adress is added.");
+			System.out.println();
 			adresses.add(adress);
 
 			break;
 		}
 		case 2:
-			
+			if (adresses.isEmpty()) {
+				System.out.println("No data to edit");
+				System.out.println();
+				break;
+			}
+			for (int i = 0; i < adresses.size(); i++) {
+				Adress adress = adresses.get(i);
+				System.out.print("Registerd AdressId : ");
+				for (int j = 0; j < adresses.size(); j++) {
+					System.out.print(adresses.get(j).adressId + " ");
+				}
+				System.out.println();
+				System.out.print("Choose adressId : ");
+				int adressId = input.nextInt();
+				if (adresses.get(i).adressId != adressId) {
+					System.out.println("The adress is not exist");
+					System.out.println();
+					break;
+				} else {
+					int pick;
+					System.out.println();
+					System.out.println("**Adress Edit Menu**");
+					System.out.println("1. Edit District");
+					System.out.println("2. Edit City");
+					System.out.println("3. Edit Street Number");
+					System.out.println("4. Edit Detail Adress");
+					System.out.println("5. Exit");
+					System.out.print("Select Menu : ");
+					pick = input.nextInt();
+					switch (pick) {
+					case 1:
+						System.out.print("District : ");
+						adress.district = input.next();
+						System.out.println("District Edit Complete.");
+						System.out.println();
+						break;
+					case 2:
+						System.out.print("City : ");
+						adress.city = input.next();
+						System.out.println("City Edit Complete.");
+						System.out.println();
+						break;
+					case 3:
+						System.out.print("Street Number : ");
+						adress.streetNum = input.nextInt();
+						System.out.println("Street Number Edit Complete.");
+						System.out.println();
+						break;
+					case 4:
+						System.out.print("Detail Adress : ");
+						adress.detailAdress = input.next();
+						System.out.println("Detail Adress Edit Complete.");
+						System.out.println();
+						break;
+					}
+				}
+				break;
+			}
+			break;
+
 		case 3:
 			System.out.print("Type AdressId : ");
-			int adressId = input.nextInt();
+			int deleteAdressId = input.nextInt();
 			int index = -1;
 			for (int i = 0; i < adresses.size(); i++) {
-				if (adresses.get(i).adressId == adressId) {
+				if (adresses.get(i).adressId == deleteAdressId) {
 					index = i;
 					break;
 				}
 			}
 			if (index >= 0) {
 				adresses.remove(index);
-				System.out.println("The AdressId " + adressId + " is deleted.");
+				System.out.println("The AdressId " + deleteAdressId + " is deleted.");
 				System.out.println();
 			} else {
 				System.out.println("The adress has not register.");
@@ -99,10 +160,15 @@ public class Operator {
 			}
 			break;
 		case 4:
-			for (int i = 0; i < adresses.size(); i++) {				
-					adresses.get(i).printInfo();											
+			if (adresses.isEmpty()) {
+				System.out.println("The adress list is empty.");
+				System.out.println();
+			} else {
+				for (int i = 0; i < adresses.size(); i++) {
+					adresses.get(i).printInfo();
+				}
+				System.out.println();
 			}
-
 		}
 	}
 }
