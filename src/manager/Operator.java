@@ -140,6 +140,11 @@ public class Operator {
 			break;
 
 		case 3:
+			System.out.print("Registerd AdressId : ");
+			for (int j = 0; j < adresses.size(); j++) {
+				System.out.print(adresses.get(j).adressId + " ");
+			}
+			System.out.println();
 			System.out.print("Type AdressId : ");
 			int deleteAdressId = input.nextInt();
 			int index = -1;
