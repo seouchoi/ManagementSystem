@@ -3,6 +3,9 @@ package manager;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import adress.Adress;
+import adress.America;
+
 public class Operator {
 	ArrayList<Adress> adresses = new ArrayList<Adress>();
 	Scanner input;
@@ -59,23 +62,34 @@ public class Operator {
 		System.out.println("4. View Adress");
 		System.out.print("Choose Menu : ");
 		int choose = input.nextInt();
+		System.out.println();
 		switch (choose) {
 		case 1: {
-			Adress adress = new Adress();
-			System.out.print("Adress Id : ");
-			adress.adressId = input.nextInt();
-			System.out.print("Your District : ");
-			adress.district = input.next();
-			System.out.print("City : ");
-			adress.city = input.next();
-			System.out.print("Street Number : ");
-			adress.streetNum = input.nextInt();
-			System.out.print("Detail Adress : ");
-			adress.detailAdress = input.next();
-			System.out.println("The adress is added.");
-			System.out.println();
-			adresses.add(adress);
-
+			int country = 0;
+			Adress adress;
+			while (country != 1 && country != 2) {
+				System.out.println("1.Korea");
+				System.out.println("2.America");
+				System.out.print("Select Country between 1 and 2 : ");
+				country = input.nextInt();
+				if (country == 1) {
+					adress = new Adress();
+					adress.getAdressInput(input);
+					adresses.add(adress);
+					System.out.println("The adress is added.");
+					System.out.println();
+					break;
+				} else if (country == 2) {
+					adress = new America();
+					adress.getAdressInput(input);
+					adresses.add(adress);
+					System.out.println("The adress is added.");
+					System.out.println();
+					break;
+				} else {
+					System.out.println("Select Country between 1 and 2 : ");
+				}
+			}
 			break;
 		}
 		case 2:
@@ -88,12 +102,12 @@ public class Operator {
 				Adress adress = adresses.get(i);
 				System.out.print("Registerd AdressId : ");
 				for (int j = 0; j < adresses.size(); j++) {
-					System.out.print(adresses.get(j).adressId + " ");
+					System.out.print(adresses.get(j).getAdressId() + " ");
 				}
 				System.out.println();
 				System.out.print("Choose adressId : ");
 				int adressId = input.nextInt();
-				if (adresses.get(i).adressId != adressId) {
+				if (adresses.get(i).getAdressId() != adressId) {
 					System.out.println("The adress is not exist");
 					System.out.println();
 					break;
@@ -111,25 +125,29 @@ public class Operator {
 					switch (pick) {
 					case 1:
 						System.out.print("District : ");
-						adress.district = input.next();
+						String district = input.next();
+						adress.setDistrict(district);
 						System.out.println("District Edit Complete.");
 						System.out.println();
 						break;
 					case 2:
 						System.out.print("City : ");
-						adress.city = input.next();
+						String city = input.next();
+						adress.setCity(city);
 						System.out.println("City Edit Complete.");
 						System.out.println();
 						break;
 					case 3:
 						System.out.print("Street Number : ");
-						adress.streetNum = input.nextInt();
+						int streetNum = input.nextInt();
+						adress.setStreetNum(streetNum);
 						System.out.println("Street Number Edit Complete.");
 						System.out.println();
 						break;
 					case 4:
 						System.out.print("Detail Adress : ");
-						adress.detailAdress = input.next();
+						String detailAdress = input.next();
+						adress.setDetailAdress(detailAdress);
 						System.out.println("Detail Adress Edit Complete.");
 						System.out.println();
 						break;
@@ -142,14 +160,14 @@ public class Operator {
 		case 3:
 			System.out.print("Registerd AdressId : ");
 			for (int j = 0; j < adresses.size(); j++) {
-				System.out.print(adresses.get(j).adressId + " ");
+				System.out.print(adresses.get(j).getAdressId() + " ");
 			}
 			System.out.println();
 			System.out.print("Type AdressId : ");
 			int deleteAdressId = input.nextInt();
 			int index = -1;
 			for (int i = 0; i < adresses.size(); i++) {
-				if (adresses.get(i).adressId == deleteAdressId) {
+				if (adresses.get(i).getAdressId() == deleteAdressId) {
 					index = i;
 					break;
 				}
