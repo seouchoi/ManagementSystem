@@ -18,7 +18,7 @@ public class America extends Adress {
 
 		char answer = 'x';
 		while (answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N') {
-			System.out.println("Do you have a Street Number? (Y/N): ");
+			System.out.print("Do you have a Street Number? (Y/N): ");
 			answer = input.next().charAt(0);
 			if (answer == 'y' || answer == 'Y') {
 				System.out.print("Street Number : ");
