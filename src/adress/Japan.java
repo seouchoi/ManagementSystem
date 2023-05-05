@@ -33,6 +33,7 @@ public class Japan extends Adress {
 			} else {
 			}
 		}
+		answer = 'x';
 		while (answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N') {
 			System.out.print("Do you have a Detail Adress? (Y/N): ");
 			answer = input.next().charAt(0);
