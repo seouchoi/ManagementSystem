@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 import adress.Adress;
 import adress.America;
+import adress.Country;
+import adress.Japan;
 
 public class Operator {
 	ArrayList<Adress> adresses = new ArrayList<Adress>();
@@ -70,7 +72,8 @@ public class Operator {
 			while (country != 1 && country != 2) {
 				System.out.println("1.Korea");
 				System.out.println("2.America");
-				System.out.print("Select Country between 1 and 2 : ");
+				System.out.println("3.Japan");
+				System.out.print("Select Country between 1,2 or 3 : ");
 				country = input.nextInt();
 				if (country == 1) {
 					adress = new Adress();
@@ -80,14 +83,21 @@ public class Operator {
 					System.out.println();
 					break;
 				} else if (country == 2) {
-					adress = new America();
+					adress = new America(Country.America);
+					adress.getAdressInput(input);
+					adresses.add(adress);
+					System.out.println("The adress is added.");
+					System.out.println();
+					break;
+				} else if (country == 3) {
+					adress = new Japan(Country.Japan);
 					adress.getAdressInput(input);
 					adresses.add(adress);
 					System.out.println("The adress is added.");
 					System.out.println();
 					break;
 				} else {
-					System.out.println("Select Country between 1 and 2 : ");
+					System.out.println("Select Country between 1,2 or 3 : ");
 				}
 			}
 			break;

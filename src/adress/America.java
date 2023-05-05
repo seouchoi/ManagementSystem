@@ -3,6 +3,9 @@ package adress;
 import java.util.Scanner;
 
 public class America extends Adress {
+	public America(Country country) {
+		this.country = country;
+	}
 	public void getAdressInput(Scanner input) {
 		System.out.print("Adress Id : ");
 		int adressId = input.nextInt();

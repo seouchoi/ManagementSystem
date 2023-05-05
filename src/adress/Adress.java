@@ -13,8 +13,12 @@ public class Adress {
 
 	public Adress() {
 	}
-	public Adress(int adressId,String district,String city,int streetNum, String detailAdress)
+	public Adress(Country country) {
+		this.country = country;
+	}
+	public Adress(Country country,int adressId,String district,String city,int streetNum, String detailAdress)
 	{
+		this.country = country;
 		this.adressId=adressId;
 		this.district=district;
 		this.city=city;
@@ -58,11 +62,26 @@ public class Adress {
 		this.detailAdress = detailAdress;
 	}
 
-	
+
 	public void printInfo()
 	{
-		
-		System.out.println("Adress Id: "+adressId+" District: "+district+", City :"+city+", StreetNum: "+streetNum+", DetailAress: "+detailAdress );	
+		String ctry = "none";
+		switch(this.country) {
+		case Korea:
+			ctry = "Korea";
+			break;
+		case America:
+			ctry = "America";
+			break;
+		case Japan:
+			ctry = "Japan";
+			break;
+		case China:
+			ctry = "Chian";
+			break;
+		default:
+		}
+		System.out.println("Country: "+ ctry+", Adress Id: "+adressId+", District: "+district+", City :"+city+", StreetNum: "+streetNum+", DetailAress: "+detailAdress );	
 	}
 	
 	public void getAdressInput(Scanner input) 
