@@ -39,7 +39,7 @@ public class Japan extends Adress {
 			answer = input.next().charAt(0);
 			if (answer == 'y' || answer == 'Y') {
 				System.out.print("Detail Adress : ");
-				String detailAdress = input.nextLine();
+				String detailAdress = input.next();
 				this.setDetailAdress(detailAdress);
 				break;
 			} else if (answer == 'n' || answer == 'N') {
