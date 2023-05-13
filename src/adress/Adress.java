@@ -2,7 +2,7 @@ package adress;
 
 import java.util.Scanner;
 
-public class Adress {
+public abstract class Adress implements AdressInput {
 	protected Country country=Country.Korea;
 	protected int adressId;
 	protected String district;
@@ -63,26 +63,8 @@ public class Adress {
 	}
 
 
-	public void printInfo()
-	{
-		String ctry = "none";
-		switch(this.country) {
-		case Korea:
-			ctry = "Korea";
-			break;
-		case America:
-			ctry = "America";
-			break;
-		case Japan:
-			ctry = "Japan";
-			break;
-		case China:
-			ctry = "Chian";
-			break;
-		default:
-		}
-		System.out.println("Country: "+ ctry+", Adress Id: "+adressId+", District: "+district+", City :"+city+", StreetNum: "+streetNum+", DetailAress: "+detailAdress );	
-	}
+	public abstract void printInfo();
+	
 	
 	public void getAdressInput(Scanner input) 
 	{

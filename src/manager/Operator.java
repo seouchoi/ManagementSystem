@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import adress.Adress;
+import adress.AdressInput;
 import adress.America;
+import adress.Korea;
 import adress.Country;
 import adress.Japan;
 
 public class Operator {
-	ArrayList<Adress> adresses = new ArrayList<Adress>();
+	ArrayList<AdressInput> adresses = new ArrayList<AdressInput>();
 	Scanner input;
 
 	Operator(Scanner input) {
@@ -68,7 +70,7 @@ public class Operator {
 		switch (choose) {
 		case 1: {
 			int country = 0;
-			Adress adress;
+			AdressInput adressInput;
 			while (country != 1 && country != 2) {
 				System.out.println("1.Korea");
 				System.out.println("2.America");
@@ -76,27 +78,28 @@ public class Operator {
 				System.out.print("Select Country between 1,2 or 3 : ");
 				country = input.nextInt();
 				if (country == 1) {
-					adress = new Adress();
-					adress.getAdressInput(input);
-					adresses.add(adress);
+					adressInput = new Korea(Country.Korea);
+					adressInput.getAdressInput(input);
+					adresses.add(adressInput);
 					System.out.println("The adress is added.");
 					System.out.println();
 					break;
 				} else if (country == 2) {
-					adress = new America(Country.America);
-					adress.getAdressInput(input);
-					adresses.add(adress);
+					adressInput = new America(Country.America);
+					adressInput.getAdressInput(input);
+					adresses.add(adressInput);
 					System.out.println("The adress is added.");
 					System.out.println();
 					break;
 				} else if (country == 3) {
-					adress = new Japan(Country.Japan);
-					adress.getAdressInput(input);
-					adresses.add(adress);
+					adressInput = new Japan(Country.Japan);
+					adressInput.getAdressInput(input);
+					adresses.add(adressInput);
 					System.out.println("The adress is added.");
 					System.out.println();
 					break;
-				} else {
+				}
+				else {
 					System.out.println("Select Country between 1,2 or 3 : ");
 				}
 			}
@@ -109,7 +112,7 @@ public class Operator {
 				break;
 			}
 			for (int i = 0; i < adresses.size(); i++) {
-				Adress adress = adresses.get(i);
+				AdressInput adressInput = adresses.get(i);
 				System.out.print("Registerd AdressId : ");
 				for (int j = 0; j < adresses.size(); j++) {
 					System.out.print(adresses.get(j).getAdressId() + " ");
@@ -136,28 +139,28 @@ public class Operator {
 					case 1:
 						System.out.print("District : ");
 						String district = input.next();
-						adress.setDistrict(district);
+						adressInput.setDistrict(district);
 						System.out.println("District Edit Complete.");
 						System.out.println();
 						break;
 					case 2:
 						System.out.print("City : ");
 						String city = input.next();
-						adress.setCity(city);
+						adressInput.setCity(city);
 						System.out.println("City Edit Complete.");
 						System.out.println();
 						break;
 					case 3:
 						System.out.print("Street Number : ");
 						int streetNum = input.nextInt();
-						adress.setStreetNum(streetNum);
+						adressInput.setStreetNum(streetNum);
 						System.out.println("Street Number Edit Complete.");
 						System.out.println();
 						break;
 					case 4:
 						System.out.print("Detail Adress : ");
 						String detailAdress = input.next();
-						adress.setDetailAdress(detailAdress);
+						adressInput.setDetailAdress(detailAdress);
 						System.out.println("Detail Adress Edit Complete.");
 						System.out.println();
 						break;
