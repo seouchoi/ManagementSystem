@@ -2,6 +2,8 @@ package adress;
 
 import java.util.Scanner;
 
+import exception.DetailAdressFormatException;
+
 public interface AdressInput {
 	public void getAdressInput(Scanner input);
 	
@@ -17,8 +19,15 @@ public interface AdressInput {
 	
 	public void setStreetNum(int streetNum);
 	
-	public void setDetailAdress(String detailAdress);
+	public void setDetailAdress(String detailAdress) throws DetailAdressFormatException;
 	
 	public void printInfo();
 	
+	public void setAdressDistrict(Scanner input);
+	
+	public void setAdressCity(Scanner input);
+	
+	public void setAdressStreetNum(Scanner input);
+	
+	public void setAdressDetail(Scanner input);
 }
