@@ -1,0 +1,6 @@
+5월 27, 2023 10:18:37 오후 log.EventLogger log
+INFO: Go to adress item
+5월 27, 2023 10:18:44 오후 log.EventLogger log
+INFO: View Menu
+5월 27, 2023 10:18:50 오후 log.EventLogger log
+INFO: Add Menu
