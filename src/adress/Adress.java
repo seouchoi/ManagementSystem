@@ -1,11 +1,16 @@
 package adress;
 
+import java.io.Serializable;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import exception.DetailAdressFormatException;
 
-public abstract class Adress implements AdressInput {
+public abstract class Adress implements AdressInput,Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2435977407586555442L;
 	protected Country country = Country.Korea;
 	protected int adressId;
 	protected String district;

@@ -1,19 +1,25 @@
 package manager;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import adress.Adress;
+
 import adress.AdressInput;
 import adress.America;
 import adress.Korea;
 import adress.Country;
 import adress.Japan;
 
-public class Operator {
+public class Operator implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6617144206701677665L;
+	
 	ArrayList<AdressInput> adresses = new ArrayList<AdressInput>();
-	Scanner input;
+	transient Scanner input;
 
 	Operator(Scanner input) {
 		this.input = input;
