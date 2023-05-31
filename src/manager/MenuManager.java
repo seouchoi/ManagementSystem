@@ -17,7 +17,11 @@ public class MenuManager {
 
 		
 		Scanner input = new Scanner(System.in);
-		Operator op = new Operator(input);		
+		Operator op = getObject("op.ser");
+		if(op == null)
+		{
+			op = new Operator(input);
+		}
 		selectMenu(input, op);
 		putObject(op,"Operator.ser");
 	}
@@ -81,7 +85,7 @@ public class MenuManager {
 			in.close();
 			file.close();
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			return op;
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
