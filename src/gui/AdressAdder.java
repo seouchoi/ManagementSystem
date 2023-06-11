@@ -8,9 +8,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-public class AdressAdder extends JFrame {
+public class AdressAdder extends JPanel {
 	
-	public AdressAdder() {
+	WindowFrame frame;
+	
+	public AdressAdder(WindowFrame frame) {
+		this.frame = frame;
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
 		
@@ -49,9 +52,8 @@ public class AdressAdder extends JFrame {
 		
 		SpringUtilities.makeCompactGrid(panel, 6 ,2 ,6 ,6 ,6 ,6 );
 		
-		this.setSize(300,300);
-		this.setContentPane(panel);
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+		this.add(panel);
 		this.setVisible(true);
 		
 	}
